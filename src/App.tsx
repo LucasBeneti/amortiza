@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { AmortizationSchedule } from './components/AmortizationSchedule'
-import {
-  FinancingForm,
-  INITIAL_FORM_VALUES,
-  parseFormValues,
-  type RawFormValues,
-} from './components/FinancingForm'
+import { FinancingForm } from './components/FinancingForm'
 import { RateOverview } from './components/RateOverview'
 import { RuleBanner } from './components/RuleBanner'
 import { ScenarioSummary } from './components/ScenarioSummary'
+import {
+  INITIAL_FORM_VALUES,
+  parseFormValues,
+  type RawFormValues,
+} from './lib/form-values'
 import {
   simulateFinancing,
   type Simulation,

@@ -176,15 +176,51 @@ yarn build    # build de produção
 yarn preview  # servir o build
 ```
 
+## Deploy na Cloudflare (Workers + static assets)
+
+O app é 100% estático, então é servido como **static assets** de um Worker
+(requer Wrangler 4.24+). A configuração está em `wrangler.toml`: aponta o
+`./dist` do Vite e ativa `not_found_handling = "single-page-application"`.
+
+Deploy manual:
+
+```bash
+yarn deploy            # equivalente a "wrangler deploy"
+```
+
+Deploy automático (CI): o workflow `.github/workflows/deploy.yml` roda a cada
+push na branch `main` (ou manualmente via `workflow_dispatch`). Ele instala as
+dependências, executa `yarn build` e publica com o `cloudflare/wrangler-action`.
+
+Antes do primeiro deploy, configure no GitHub **Settings → Secrets and
+variables → Actions** (ou no dashboard da Cloudflare):
+
+| Secret | Valor |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | Token de API com permissão *Edit Cloudflare Workers* (My Profile → API Tokens → "Edit Cloudflare Workers") |
+| `CLOUDFLARE_ACCOUNT_ID` | ID da conta (Dashboard → Workers & Pages → sidebar) |
+
 ## Estrutura
 
 ```text
 amortiza/
 ├── index.html
 ├── vite.config.ts
+├── wrangler.toml
+├── .github/workflows/deploy.yml
 ├── tsconfig.json
 └── src/
     ├── main.tsx
     ├── App.tsx
-    └── index.css
+    ├── index.css
+    ├── components/
+    │   ├── FinancingForm.tsx
+    │   ├── ScenarioSummary.tsx
+    │   ├── AmortizationSchedule.tsx
+    │   ├── RateOverview.tsx
+    │   └── RuleBanner.tsx
+    └── lib/
+        ├── financing.ts
+        ├── input.ts
+        └── format.ts
 ```

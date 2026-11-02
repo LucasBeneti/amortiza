@@ -1,0 +1,12 @@
+# Cloudflare Workers — static assets (SPA)
+#
+# Build first (`yarn build`), then deploy (`yarn deploy` or `wrangler deploy`).
+# The `dist/` folder produced by Vite is uploaded as static assets.
+name = "amortiza"
+compatibility_date = "2025-11-01"
+
+[assets]
+# Directory with the built SPA (Vite outputs to ./dist).
+directory = "./dist"
+# Serve index.html for unmatched routes (safe for a single-page app).
+not_found_handling = "single-page-application"

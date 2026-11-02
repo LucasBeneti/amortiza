@@ -10,6 +10,8 @@ comparações feitas aqui batam com o contrato, não com o anúncio.
 > com resumo comparativo e tabela completa de parcelas. Este README
 > documenta sobretudo o modelo de juros que orienta o cálculo.
 
+Deve ser usado apenas para ter uma ideia.
+
 ---
 
 ## Juros nominal x efetivo
@@ -195,10 +197,10 @@ dependências, executa `yarn build` e publica com o `cloudflare/wrangler-action`
 Antes do primeiro deploy, configure no GitHub **Settings → Secrets and
 variables → Actions** (ou no dashboard da Cloudflare):
 
-| Secret | Valor |
-|---|---|
-| `CLOUDFLARE_API_TOKEN` | Token de API com permissão *Edit Cloudflare Workers* (My Profile → API Tokens → "Edit Cloudflare Workers") |
-| `CLOUDFLARE_ACCOUNT_ID` | ID da conta (Dashboard → Workers & Pages → sidebar) |
+| Secret                  | Valor                                                                                                      |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `CLOUDFLARE_API_TOKEN`  | Token de API com permissão _Edit Cloudflare Workers_ (My Profile → API Tokens → "Edit Cloudflare Workers") |
+| `CLOUDFLARE_ACCOUNT_ID` | ID da conta (Dashboard → Workers & Pages → sidebar)                                                        |
 
 ## Estrutura
 

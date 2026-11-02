@@ -60,6 +60,7 @@ export type Simulation = {
 }
 
 const MONTHS_PER_YEAR = 12
+export const MAX_MONTHS = 420
 
 /** Rounds a BRL value to cents. */
 export function roundToCents(value: number): number {
@@ -103,6 +104,11 @@ export function calculatePriceInstallment(
   if (!Number.isInteger(months) || months <= 0) {
     throw new RangeError('O prazo em meses precisa ser um inteiro maior que zero.')
   }
+  if (months > MAX_MONTHS) {
+    throw new RangeError(
+      `O prazo máximo é de ${MAX_MONTHS} meses (35 anos).`,
+    )
+  }
   if (!Number.isFinite(monthlyRate) || monthlyRate < 0) {
     throw new RangeError('A taxa mensal não pode ser negativa.')
   }
@@ -127,6 +133,11 @@ function validateScenario({
   }
   if (!Number.isInteger(months) || months <= 0) {
     throw new RangeError('O prazo em meses precisa ser um inteiro maior que zero.')
+  }
+  if (months > MAX_MONTHS) {
+    throw new RangeError(
+      `O prazo máximo é de ${MAX_MONTHS} meses (35 anos).`,
+    )
   }
   if (!Number.isFinite(monthlyRate) || monthlyRate < 0) {
     throw new RangeError('A taxa mensal não pode ser negativa.')

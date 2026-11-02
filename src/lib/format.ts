@@ -11,9 +11,7 @@ const percentageFormat = new Intl.NumberFormat('pt-BR', {
 })
 
 export function formatCurrency(value: number): string {
-  // Intl uses a non-breaking space (U+00A0) after "R$"; replace it with a
-  // regular space.
-  return currencyFormat.format(value).replace(/\u00A0/g, ' ')
+  return currencyFormat.format(value)
 }
 
 export function formatPercentage(value: number): string {

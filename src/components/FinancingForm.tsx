@@ -226,8 +226,8 @@ export function FinancingForm({
           name="rateMode"
           defaultValue={initialValues.rateMode}
         >
-          <option value="nominal">Nominal · anual ÷ 12 (cláusula do contrato)</option>
           <option value="effective">Efetiva · (1 + anual)^(1/12) − 1 (calculadoras)</option>
+          <option value="nominal">Nominal · anual ÷ 12 (cláusula do contrato)</option>
         </select>
       </div>
 

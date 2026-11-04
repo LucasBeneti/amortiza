@@ -390,7 +390,7 @@ export function simulateFinancing({
   priceDownPaymentPercent = 50,
   sacDownPaymentPercent = 30,
   annualAdjustmentPercent = 0,
-  rateMode = 'nominal',
+  rateMode = 'effective',
 }: SimulationParameters = {}): Simulation {
   if (!Number.isFinite(propertyValue) || propertyValue <= 0) {
     throw new RangeError('O valor do imóvel precisa ser maior que zero.')

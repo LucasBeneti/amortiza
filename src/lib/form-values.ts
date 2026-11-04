@@ -19,7 +19,7 @@ export const INITIAL_FORM_VALUES: RawFormValues = {
   priceDownPayment: '50',
   sacDownPayment: '30',
   annualAdjustment: '0',
-  rateMode: 'nominal',
+  rateMode: 'effective',
 }
 
 /** Converts the raw form strings into parsed numeric simulation parameters. */
